@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>شركة الحياة للدراسات والبحوث</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue2) 55%, #1a7abf);
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-cnt {
+      padding: 80px 60px 80px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(46, 204, 113, .18);
+      color: var(--green);
+      border: 1px solid rgba(46, 204, 113, .4);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(26px, 3.8vw, 48px);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .hero-p {
+      color: rgba(255, 255, 255, .84);
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+
+    .hero-q {
+      color: rgba(255, 255, 255, .62);
+      font-size: 14px;
+      font-style: italic;
+      border-right: 3px solid var(--green);
+      padding-right: 14px;
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-img {
+      height: 520px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .42;
+      mix-blend-mode: luminosity;
+    }
+
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to left, transparent 15%, var(--blue) 68%);
+    }
+
+    /* من نحن */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .who-text h2 {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    .who-text p {
+      color: #555;
+      line-height: 1.9;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .cards2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .card2 {
+      background: var(--light);
+      border-radius: 13px;
+      padding: 20px;
+      border-right: 4px solid var(--green);
+    }
+
+    .card2 h3 {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .card2 p {
+      color: #555;
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* قيمنا */
+    .vals-col h3 {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--blue);
+      margin-bottom: 18px;
+    }
+
+    .val {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 14px 16px;
+      margin-bottom: 11px;
+      transition: .2s;
+    }
+
+    .val:hover {
+      border-color: var(--green);
+      box-shadow: 0 4px 14px rgba(46, 204, 113, .1);
+    }
+
+    .val-dot {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      background: linear-gradient(135deg, var(--green), var(--green2));
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .val span:last-child {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    /* أثر */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(255, 255, 255, .06);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 44px 12px;
+      border-left: 1px solid rgba(255, 255, 255, .1);
+      transition: .2s;
+    }
+
+    .stat:last-child {
+      border-left: none;
+    }
+
+    .stat:hover {
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .stat-n {
+      font-size: 50px;
+      font-weight: 900;
+      color: var(--green);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-l {
+      color: rgba(255, 255, 255, .78);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* شركاء */
+    .partners {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 38px;
+    }
+
+    .partner {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      width: 135px;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray);
+      text-align: center;
+      padding: 10px;
+      transition: .2s;
+    }
+
+    .partner:hover {
+      border-color: var(--green);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .09);
+      color: var(--blue);
+    }
+
+    /* تواصل معنا */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .ci-card {
+      background: linear-gradient(135deg, var(--blue), #0d4e8a);
+      border-radius: 18px;
+      padding: 40px 34px;
+      color: #fff;
+      position: sticky;
+      top: 80px;
+    }
+
+    .ci-card h3 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .ci-card .sub {
+      color: rgba(255, 255, 255, .65);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .ci {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 22px;
+    }
+
+    .ci-ico {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      background: rgba(255, 255, 255, .12);
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+    }
+
+    .ci-lbl {
+      color: rgba(255, 255, 255, .55);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .ci-val {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .fc {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 44px;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, .05);
+    }
+
+    .fc h3 {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .fc .fsub {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .frow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fg {
+      margin-bottom: 18px;
+    }
+
+    .fg label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      color: #1e293b;
+      background: var(--light);
+      transition: .2s;
+      outline: none;
+      appearance: auto;
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      border-color: var(--green);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(46, 204, 113, .1);
+    }
+
+    .fg textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .btn-sub {
+      width: 100%;
+      justify-content: center;
+      background: var(--green);
+      color: #fff;
+      font-size: 16px;
+      padding: 14px;
+      border-radius: 10px;
+    }
+
+    .btn-sub:hover {
+      background: var(--green2);
+    }
+
+    .fnote {
+      text-align: center;
+      color: var(--gray);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .ok {
+      display: none;
+      background: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      border-radius: 11px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .ok.show {
+      display: block;
+    }
+
+    .ok p {
+      color: #1a5f3c;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    @media(max-width:900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-img {
+        display: none;
+      }
+
+      .hero-cnt {
+        padding: 60px 24px;
+      }
+
+      .who-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ci-card {
+        position: static;
+      }
+    }
+
+    @media(max-width:600px) {
+      .cards2 {
+        grid-template-columns: 1fr;
+      }
+
+      .frow {
+        grid-template-columns: 1fr;
+      }
+
+      .fc {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="home">
+  <script src="nav.js"></script>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero">
+    <div class="hero-cnt">
+      <div class="badge">🌿 مؤسسة فلسطينية رائدة</div>
+      <h1>مرحبًا بكم في<br><em>شركة الحياة</em><br>للدراسات والبحوث</h1>
+      <p class="hero-p">منصة متخصصة في التعليم التطبيقي، البحث العلمي، تطوير المهارات المهنية، والاستشارات المؤسسية،
+        نعمل على تحويل المعرفة إلى حلول عملية تُحدث أثرًا مستدامًا في المجتمع.</p>
+      <p class="hero-q">"ونحن نحب الحياة ما استطعنا إليها سبيلاً" – محمود درويش</p>
+      <div class="hero-btns">
+        <a href="academy.html" class="btn btn-g">🎓 استعرض البرامج</a>
+        <a href="#contact" class="btn btn-o">تواصل معنا ←</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80" alt="">
+    </div>
+  </section>
+
+  <!-- ══════════════ من نحن ══════════════ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="who-grid">
+        <div class="who-text">
+          <h2>من نحن</h2>
+          <p>نحن مؤسسة فلسطينية تعمل بمنهجية علمية تطبيقية لدعم الأفراد والمؤسسات من خلال برامج تعليمية مهنية، أبحاث
+            مسؤولة، حلول تطوير مؤسسي، ومبادرات تنموية متعددة القطاعات.</p>
+          <div class="cards2">
+            <div class="card2">
+              <h3>🎯 رؤيتنا</h3>
+              <p>أن نكون مؤسسة رائدة إقليميًا في تطوير التعليم التطبيقي، دعم البحث العلمي المؤثر، وبناء القدرات المهنية
+                التي تلبي احتياجات سوق العمل والمجتمع.</p>
+            </div>
+            <div class="card2">
+              <h3>📋 رسالتنا</h3>
+              <p>تمكين الأفراد والمؤسسات من خلال برامج تعليمية تطبيقية، أبحاث علمية مسؤولة، واستشارات احترافية تُسهم في
+                تحسين الأداء وبناء مستقبل أكثر استدامة.</p>
+            </div>
+          </div>
+        </div>
+        <div class="vals-col">
+          <h3>قيمنا</h3>
+          <div class="val">
+            <div class="val-dot">⭐</div><span>الجودة والاحتراف</span>
+          </div>
+          <div class="val">
+            <div class="val-dot">🔬</div><span>النزاهة العلمية</span>
+          </div>
+          <div class="val">
+            <div class="val-dot">🤝</div><span>الأثر المجتمعي</span>
+          </div>
+          <div class="val">
+            <div class="val-dot">💡</div><span>الابتكار التطبيقي</span>
+          </div>
+          <div class="val">
+            <div class="val-dot">🌍</div><span>الشراكات المستدامة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ أثرنا المجتمعي ══════════════ -->
+  <section class="sec bg-dark">
+    <div class="wrap">
+      <div class="sh light">
+        <span class="tag" style="background:rgba(255,255,255,.1);color:var(--green);">إنجازاتنا</span>
+        <h2>أثرنا المجتمعي</h2>
+        <div class="bar"></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="stat-n">+500</span><span class="stat-l">متدرب ومتدربة</span></div>
+        <div class="stat"><span class="stat-n">+50</span><span class="stat-l">برنامج تدريبي</span></div>
+        <div class="stat"><span class="stat-n">+30</span><span class="stat-l">بحث علمي تطبيقي</span></div>
+        <div class="stat"><span class="stat-n">+20</span><span class="stat-l">شريك مؤسسي</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ شركاؤنا ══════════════ -->
+  <section class="sec bg-light">
+    <div class="wrap">
+      <div class="sh">
+        <span class="tag">شبكتنا</span>
+        <h2>شركاؤنا</h2>
+        <div class="bar"></div>
+      </div>
+      <div class="partners">
+        <div class="partner">🎓<br>جامعات شريكة</div>
+        <div class="partner">🌐<br>NGO Partners</div>
+        <div class="partner">🏛️<br>مؤسسات دولية</div>
+        <div class="partner">👥<br>Mentoring Org.</div>
+        <div class="partner">📈<br>Training Center</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ تواصل معنا ══════════════ -->
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <div class="sh">
+        <span class="tag">تواصل معنا</span>
+        <h2>تواصل معنا</h2>
+        <div class="bar"></div>
+      </div>
+      <div class="contact-grid">
+
+        <div class="ci-card">
+          <h3>نسعد بتواصلك</h3>
+          <p class="sub">تواصل معنا وسيرد فريقنا في أقرب وقت ممكن.</p>
+          <div class="ci">
+            <div class="ci-ico">📍</div>
+            <div>
+              <div class="ci-lbl">الموقع</div>
+              <div class="ci-val">فلسطين</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">📧</div>
+            <div>
+              <div class="ci-lbl">البريد الإلكتروني</div>
+              <div class="ci-val">info@alhayat.ps</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">📞</div>
+            <div>
+              <div class="ci-lbl">الهاتف</div>
+              <div class="ci-val">+970 XX XXX XXXX</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">⏰</div>
+            <div>
+              <div class="ci-lbl">أوقات العمل</div>
+              <div class="ci-val">الأحد – الخميس: 8 ص – 4 م</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc">
+          <h3>أرسل لنا رسالة</h3>
+          <p class="fsub">سنرد على رسالتك خلال 24–48 ساعة عمل.</p>
+          <div class="frow">
+            <div class="fg"><label>الاسم الكامل *</label><input type="text" id="fn" placeholder="أدخل اسمك الكامل">
+            </div>
+            <div class="fg"><label>البريد الإلكتروني *</label><input type="email" id="fe" placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="fg">
+            <label>موضوع الاستفسار *</label>
+            <select id="fs">
+              <option value="">اختر موضوع استفسارك</option>
+              <option>التسجيل في برنامج بالأكاديمية</option>
+              <option>استفسار بحثي</option>
+              <option>طلب استشارة مؤسسية</option>
+              <option>شراكة استراتيجية</option>
+              <option>السلامة البيئية</option>
+              <option>استفسار عام</option>
+            </select>
+          </div>
+          <div class="fg"><label>رسالتك *</label><textarea id="fm" placeholder="اكتب رسالتك هنا..."></textarea></div>
+          <button class="btn btn-sub" onclick="send()">إرسال الرسالة ✉️</button>
+          <p class="fnote">📌 جميع المعلومات تُعامَل بسرية تامة</p>
+          <div class="ok" id="ok">
+            <p>✅ شكرًا! تم إرسال رسالتك. سنرد عليك قريبًا.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function send() {
+      var n = document.getElementById('fn').value,
+        e = document.getElementById('fe').value,
+        s = document.getElementById('fs').value,
+        m = document.getElementById('fm').value;
+      if (!n || !e || !s || !m) { alert('الرجاء ملء جميع الحقول المطلوبة (*)'); return; }
+      document.getElementById('ok').classList.add('show');
+      ['fn', 'fe', 'fs', 'fm'].forEach(function (id) { document.getElementById(id).value = ''; });
+    }
+  </script>
+  <script src="footer.js"></script>
+
+</body>
+
+</html>

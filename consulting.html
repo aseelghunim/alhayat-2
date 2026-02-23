@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>مركز الاستشارات والتطوير المؤسسي</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cons-hero {
+      background: linear-gradient(135deg, #051c3a, var(--blue) 40%, var(--blue2));
+    }
+
+    .cons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .cc {
+      /* background: #fff; */
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: .28s;
+    }
+
+    .cc:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(10, 61, 122, .12);
+    }
+
+    .cc-top {
+      padding: 28px 24px;
+      text-align: center;
+      color: #fff;
+      /* background: linear-gradient(135deg, var(--blue), var(--blue2)); */
+    }
+
+    .cc-top .cic {
+      font-size: 44px;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .cc-top h3 {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .cc-body {
+      padding: 22px 24px;
+      display: none;
+    }
+
+    .cc-body ul {
+      list-style: none;
+    }
+
+    .cc-body li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #444;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .cc-body li:last-child {
+      border-bottom: none;
+    }
+
+    .cc-body li::before {
+      content: '•';
+      color: var(--green2);
+      font-size: 20px;
+      font-weight: 900;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+  </style>
+</head>
+
+<body data-page="consulting">
+  <script src="nav.js"></script>
+  <!-- <script src="footer.js"></script> -->
+
+  <div class="cons-hero">
+    <div class="ph">
+      <span class="ey">الشباك الخامس</span>
+      <h1>مركز الاستشارات والتطوير المؤسسي</h1>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sh">
+        <span class="tag">مجالاتنا</span>
+        <h2>خدماتنا الاستشارية</h2>
+        <div class="bar"></div>
+      </div>
+      <div class="cons-grid">
+
+        <div class="cc" id="edu">
+          <div class="cc-top"><span class="cic">🎓</span>
+            <h3>استشارات تعليمية</h3>
+          </div>
+          <!-- <div class="cc-body">
+            <ul>
+              <li>تقييم المنظومة التعليمية وتحديد نقاط التطوير</li>
+              <li>تصميم المناهج وفق المعايير الحديثة</li>
+              <li>تطوير استراتيجيات التدريس والتقييم</li>
+              <li>بناء أنظمة ضمان جودة التعلم</li>
+            </ul>
+          </div> -->
+        </div>
+
+        <div class="cc" id="programs">
+          <div class="cc-top"><span class="cic">📋</span>
+            <h3>تطوير برامج</h3>
+          </div>
+          <!-- <div class="cc-body">
+            <ul>
+              <li>تصميم البرامج التعليمية والمهنية</li>
+              <li>مراجعة البرامج القائمة وتحسينها</li>
+              <li>تطوير المحتوى التعليمي الرقمي</li>
+              <li>تقييم البرامج وقياس الأثر</li>
+            </ul>
+          </div> -->
+        </div>
+
+        <div class="cc" id="quality">
+          <div class="cc-top"><span class="cic">⚙️</span>
+            <h3>أنظمة جودة</h3>
+          </div>
+          <!-- <div class="cc-body">
+            <ul>
+              <li>تصميم أنظمة ضمان الجودة والاعتماد</li>
+              <li>إعداد الوثائق والإجراءات المؤسسية</li>
+              <li>التحضير لعمليات الاعتماد الخارجي</li>
+              <li>بناء مؤشرات الأداء والتقييم المستمر</li>
+            </ul>
+          </div> -->
+        </div>
+
+        <div class="cc" id="health">
+          <div class="cc-top"><span class="cic">🌿</span>
+            <h3>سياسات صحية وبيئية</h3>
+          </div>
+          <!-- <div class="cc-body">
+            <ul>
+              <li>تطوير السياسات الصحية والبيئية المؤسسية</li>
+              <li>الامتثال للمعايير الصحية والبيئية الدولية</li>
+              <li>إعداد خطط إدارة الأزمات والطوارئ</li>
+              <li>تدريب الكوادر على السلامة المهنية</li>
+            </ul>
+          </div> -->
+        </div>
+
+        <div class="cc" id="build">
+          <div class="cc-top"><span class="cic">🏛️</span>
+            <h3>بناء مؤسسات</h3>
+          </div>
+          <!-- <div class="cc-body">
+            <ul>
+              <li>تصميم الهيكل التنظيمي والحوكمة</li>
+              <li>تطوير الاستراتيجيات المؤسسية</li>
+              <li>بناء الأنظمة والإجراءات التشغيلية</li>
+              <li>تطوير الكوادر البشرية والقيادية</li>
+            </ul>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <script src="footer.js"></script>
+
+</body>
+
+</html>

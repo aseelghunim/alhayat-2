@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>أكاديمية الحياة للتعليم المهني والتقني</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .acad-hero {
+      background: linear-gradient(135deg, var(--blue), #0d4e8a 50%, var(--blue2));
+    }
+
+    /* أهداف */
+    .goals {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .goal {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px 18px;
+      text-align: center;
+      transition: .2s;
+    }
+
+    .goal:hover {
+      border-color: var(--green);
+      box-shadow: 0 4px 18px rgba(46, 204, 113, .1);
+    }
+
+    .goal .gi {
+      font-size: 32px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .goal p {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1.5;
+    }
+
+    /* برامج */
+    .progs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 24px;
+    }
+
+    .prog {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: .28s;
+    }
+
+    .prog:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(10, 61, 122, .12);
+      border-color: var(--green);
+    }
+
+    .prog-hd {
+      padding: 30px 24px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .prog-hd span.ic {
+      font-size: 44px;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .prog-hd h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .prog-hd .dur {
+      display: inline-block;
+      background: rgba(255, 255, 255, .2);
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .prog-bd {
+      padding: 22px 24px;
+    }
+
+    .prog-bd p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .prog-inc {
+      background: var(--light);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .prog-inc h4 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .prog-inc ul {
+      list-style: none;
+    }
+
+    .prog-inc li {
+      font-size: 13px;
+      color: #555;
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prog-inc li::before {
+      content: '✓';
+      color: var(--green2);
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .btn-reg {
+      width: 100%;
+      justify-content: center;
+      background: var(--green);
+      color: #fff;
+      font-size: 14px;
+      padding: 11px;
+      border-radius: 9px;
+    }
+
+    .btn-reg:hover {
+      background: var(--green2);
+    }
+
+    /* لماذا - مخرجات */
+    .why-out {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .box-why {
+      background: linear-gradient(135deg, var(--blue), #0d4e8a);
+      border-radius: 18px;
+      padding: 36px;
+    }
+
+    .box-why h3 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .why-ul {
+      list-style: none;
+    }
+
+    .why-ul li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 13px;
+    }
+
+    .ck {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+
+    .box-out {
+      background: var(--light);
+      border-radius: 18px;
+      padding: 36px;
+    }
+
+    .box-out h3 {
+      color: var(--blue);
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .out-ul {
+      list-style: none;
+    }
+
+    .out-ul li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 13px;
+    }
+
+    .out-ul .dot {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    @media(max-width:900px) {
+      .goals {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-out {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="academy">
+  <script src="nav.js"></script>
+
+
+  <div class="acad-hero">
+    <div class="ph">
+      <span class="ey">الذراع التعليمية لشركة الحياة</span>
+      <h1>أكاديمية الحياة للتعليم المهني والتقني</h1>
+      <p class="desc">حيث يتحول التعلم إلى مهارة حقيقية —
+        وتهدف إلى تمكين الأفراد بمهارات تطبيقية وبرامج مهنية حديثة تلبي احتياجات سوق العمل وتدعم التطور المهني المستدام.
+        نؤمن بأن التعليم العملي هو الجسر الحقيقي بين المعرفة النظرية والنجاح المهني.
+      </p>
+    </div>
+  </div>
+
+  <!-- أهداف الأكاديمية -->
+  <section class="sec bg-light">
+    <div class="wrap">
+      <div class="sh">
+        <span class="tag">أهداف الأكاديمية</span>
+        <h2>أهداف الأكاديمية</h2>
+        <div class="bar"></div>
+      </div>
+      <div class="goals">
+        <div class="goal"><span class="gi">🎯</span>
+          <p>تأهيل مهني عملي مرتبط بسوق العمل</p>
+        </div>
+        <div class="goal"><span class="gi">⚡</span>
+          <p>بناء مهارات حديثة قابلة للتطبيق الفوري</p>
+        </div>
+        <div class="goal"><span class="gi">📈</span>
+          <p>دعم الشباب والمهنيين في تطوير مسارهم الوظيفي</p>
+        </div>
+        <div class="goal"><span class="gi">🔄</span>
+          <p>توفير بدائل تعليمية مرنة وعملية</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- برامجنا التعليمية -->
+  <section class="sec" id="diplomas">
+    <div class="wrap">
+      <div class="sh">
+        <span class="tag">برامجنا التعليمية</span>
+        <h2>برامجنا التعليمية</h2>
+        <div class="bar"></div>
+      </div>
+      <div class="progs">
+
+        <!-- الدبلومات -->
+        <div class="prog">
+          <div class="prog-hd" style="background:linear-gradient(135deg,#0a3d7a,#1a5fa8)">
+            <span class="ic">🎓</span>
+            <h3>الدبلومات المهنية التطبيقية</h3>
+            <!-- <span class="dur">4–6 أشهر</span> -->
+          </div>
+          <div class="prog-bd">
+            <p>برامج طويلة نسبيًا تركز على التدريب العملي المكثف، وتهدف إلى إعداد المتدربين للعمل مباشرة في مجالات
+              متعددة.</p>
+            <div class="prog-inc">
+              <h4>تشمل:</h4>
+              <ul>
+                <li>مهارات مهنية وتقنية</li>
+                <li>تطبيقات عملية ميدانية</li>
+                <li>مشاريع تخرج تطبيقية</li>
+              </ul>
+            </div>
+            <!-- <a href="index.html#contact" class="btn btn-reg">سجّل الآن ←</a> -->
+          </div>
+        </div>
+
+        <!-- البرامج القصيرة -->
+        <div class="prog" id="short">
+          <div class="prog-hd" style="background:linear-gradient(135deg,#1a7abf,#2196f3)">
+            <span class="ic">⚡</span>
+            <h3>البرامج المهنية القصيرة</h3>
+            <!-- <span class="dur">2–6 أسابيع</span> -->
+          </div>
+          <div class="prog-bd">
+            <p>دورات مكثفة تركز على مهارة محددة خلال فترة قصيرة.</p>
+            <div class="prog-inc">
+              <h4>تشمل:</h4>
+              <ul>
+                <li>مهارات العمل المؤسسي</li>
+                <li>مهارات تقنية حديثة</li>
+                <li>تطوير مهني سريع</li>
+              </ul>
+            </div>
+            <!-- <a href="index.html#contact" class="btn btn-reg">سجّل الآن ←</a> -->
+          </div>
+        </div>
+
+        <!-- الإعداد الجامعي -->
+        <div class="prog" id="university">
+          <div class="prog-hd" style="background:linear-gradient(135deg,#16a085,#1abc9c)">
+            <span class="ic">📚</span>
+            <h3>برامج الإعداد الجامعي والتأهيل الأكاديمي</h3>
+            <!-- <span class="dur">3–4 أشهر</span> -->
+          </div>
+          <div class="prog-bd">
+            <p>تقدّم أكاديمية الحياة للمهارات والتعليم التقني برامج إعداد جامعي وتأهيل أكاديمي متخصصة تهدف إلى تمكين
+              الطلبة من الانتقال السلس والناجح إلى التعليم الجامعي والتطبيقي، عبر بناء المهارات الأكاديمية الأساسية
+              وتعزيز الجاهزية العلمية والسلوكية للدراسة العليا.</p>
+            <div class="prog-inc">
+              <h4>تركّز هذه البرامج على:</h4>
+              <ul>
+                <li>تنمية مهارات التفكير النقدي والبحث العلمي المبسّط</li>
+                <li>تقوية اللغة الأكاديمية (العربية والإنجليزية حسب التخصص)</li>
+                <li>مهارات الدراسة الجامعية وإدارة الوقت</li>
+                <li>أساسيات العلوم المرتبطة بالتخصصات المختلفة</li>
+                <li>أخلاقيات التعليم والعمل الأكاديمي</li>
+                <li>التوجيه المهني المبكر واختيار المسار المناسب</li>
+              </ul>
+            </div>
+            <!-- <a href="index.html#contact" class="btn btn-reg">سجّل الآن ←</a> -->
+          </div>
+        </div>
+
+        <!-- الشهادات المهارية -->
+        <div class="prog" id="micro">
+          <div class="prog-hd" style="background:linear-gradient(135deg,#7d3c98,#9b59b6)">
+            <span class="ic">🏅</span>
+            <h3>الشهادات المهارية المعتمدة (Micro-Credentials)</h3>
+            <!-- <span class="dur">فترة مرنة ومكثفة</span> -->
+          </div>
+          <div class="prog-bd">
+            <p>شهادات قصيرة تركز على مهارات عملية متخصصة، وتهدف إلى رفع الكفاءة بسرعة ومرونة.</p>
+            <div class="prog-inc">
+              <h4>تشمل تخصصات في:</h4>
+              <ul>
+                <li>المهارات المهنية</li>
+                <li>المهارات التقنية</li>
+                <li>المهارات البحثية</li>
+                <li>المهارات الريادية</li>
+              </ul>
+            </div>
+            <!-- <a href="index.html#contact" class="btn btn-reg">سجّل الآن ←</a> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- لماذا الأكاديمية + مخرجات التعليم -->
+  <section class="sec bg-light">
+    <div class="wrap">
+      <div class="why-out">
+        <div class="box-why">
+          <h3>لماذا أكاديمية الحياة؟</h3>
+          <ul class="why-ul">
+            <li><span class="ck">✓</span> برامج تطبيقية مرتبطة بالواقع</li>
+            <li><span class="ck">✓</span> تركيز على المهارات المطلوبة فعليًا</li>
+            <li><span class="ck">✓</span> مرونة في التعلم والتوقيت</li>
+            <li><span class="ck">✓</span> مدربين وخبراء متخصصين</li>
+            <li><span class="ck">✓</span> منهجية حديثة قائمة على الممارسة</li>
+          </ul>
+        </div>
+        <div class="box-out">
+          <h3>مخرجات التعليم — خريجون يمتلكون:</h3>
+          <ul class="out-ul">
+            <li><span class="dot">✓</span> مهارات عملية</li>
+            <li><span class="dot">✓</span> جاهزية لسوق العمل</li>
+            <li><span class="dot">✓</span> قدرة على التطور المستمر</li>
+            <li><span class="dot">✓</span> فهم تطبيقي حقيقي للمجالات المهنية</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="footer.js"></script>
+
+</body>
+
+</html>
