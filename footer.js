@@ -14,7 +14,7 @@
       '</a>'+
           '<p>"ونحن نحب الحياة ما استطعنا إليها سبيلاً" — محمود درويش</p>'+
         '</div>'+
-        '<div class="ft-col"><h4>الشبابيك</h4><ul>'+
+        '<div class="ft-col"><h4>روابط هامة</h4><ul>'+
           '<li><a href="index.html">الرئيسية</a></li>'+
           '<li><a href="academy.html">أكاديمية الحياة</a></li>'+
           '<li><a href="research.html">البحوث التطبيقية</a></li>'+
