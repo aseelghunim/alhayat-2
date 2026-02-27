@@ -18,9 +18,7 @@
     }
 
     .cc {
-      /* background: #fff; */
       background: linear-gradient(135deg, var(--blue), var(--blue2));
-
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
@@ -36,7 +34,6 @@
       padding: 28px 24px;
       text-align: center;
       color: #fff;
-      /* background: linear-gradient(135deg, var(--blue), var(--blue2)); */
     }
 
     .cc-top .cic {
@@ -82,12 +79,53 @@
       flex-shrink: 0;
       line-height: 1;
     }
+
+    /* =========================
+       Reveal Animations
+       ========================= */
+    :root {
+      --reveal-duration: 900ms;
+      --reveal-ease: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(2px);
+      transition:
+        opacity var(--reveal-duration) var(--reveal-ease),
+        transform var(--reveal-duration) var(--reveal-ease),
+        filter var(--reveal-duration) var(--reveal-ease);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.from-bottom { transform: translateY(28px); }
+    .reveal.from-left   { transform: translateX(-28px); }
+    .reveal.from-right  { transform: translateX(28px); }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translate(0, 0);
+      filter: blur(0);
+    }
+
+    .reveal[data-delay] {
+      transition-delay: var(--d, 0ms);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal.show {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+      }
+    }
   </style>
 </head>
 
 <body data-page="consulting">
   <script src="nav.js"></script>
-  <!-- <script src="footer.js"></script> -->
 
   <div class="cons-hero">
     <div class="ph">
@@ -103,83 +141,108 @@
         <h2>خدماتنا الاستشارية</h2>
         <div class="bar"></div>
       </div>
+
       <div class="cons-grid">
 
         <div class="cc" id="edu">
           <div class="cc-top"><span class="cic">🎓</span>
             <h3>استشارات تعليمية</h3>
           </div>
-          <!-- <div class="cc-body">
-            <ul>
-              <li>تقييم المنظومة التعليمية وتحديد نقاط التطوير</li>
-              <li>تصميم المناهج وفق المعايير الحديثة</li>
-              <li>تطوير استراتيجيات التدريس والتقييم</li>
-              <li>بناء أنظمة ضمان جودة التعلم</li>
-            </ul>
-          </div> -->
         </div>
 
         <div class="cc" id="programs">
           <div class="cc-top"><span class="cic">📋</span>
             <h3>تطوير برامج</h3>
           </div>
-          <!-- <div class="cc-body">
-            <ul>
-              <li>تصميم البرامج التعليمية والمهنية</li>
-              <li>مراجعة البرامج القائمة وتحسينها</li>
-              <li>تطوير المحتوى التعليمي الرقمي</li>
-              <li>تقييم البرامج وقياس الأثر</li>
-            </ul>
-          </div> -->
         </div>
 
         <div class="cc" id="quality">
           <div class="cc-top"><span class="cic">⚙️</span>
             <h3>أنظمة جودة</h3>
           </div>
-          <!-- <div class="cc-body">
-            <ul>
-              <li>تصميم أنظمة ضمان الجودة والاعتماد</li>
-              <li>إعداد الوثائق والإجراءات المؤسسية</li>
-              <li>التحضير لعمليات الاعتماد الخارجي</li>
-              <li>بناء مؤشرات الأداء والتقييم المستمر</li>
-            </ul>
-          </div> -->
         </div>
 
         <div class="cc" id="health">
           <div class="cc-top"><span class="cic">🌿</span>
             <h3>سياسات صحية وبيئية</h3>
           </div>
-          <!-- <div class="cc-body">
-            <ul>
-              <li>تطوير السياسات الصحية والبيئية المؤسسية</li>
-              <li>الامتثال للمعايير الصحية والبيئية الدولية</li>
-              <li>إعداد خطط إدارة الأزمات والطوارئ</li>
-              <li>تدريب الكوادر على السلامة المهنية</li>
-            </ul>
-          </div> -->
         </div>
 
         <div class="cc" id="build">
           <div class="cc-top"><span class="cic">🏛️</span>
             <h3>بناء مؤسسات</h3>
           </div>
-          <!-- <div class="cc-body">
-            <ul>
-              <li>تصميم الهيكل التنظيمي والحوكمة</li>
-              <li>تطوير الاستراتيجيات المؤسسية</li>
-              <li>بناء الأنظمة والإجراءات التشغيلية</li>
-              <li>تطوير الكوادر البشرية والقيادية</li>
-            </ul>
-          </div> -->
         </div>
 
       </div>
     </div>
   </section>
-  <script src="footer.js"></script>
 
+  <!-- ✅ REVEAL ANIMATIONS SCRIPT -->
+  <script>
+    // 1) Add reveal classes + delays automatically
+    (function () {
+      // Hero (load)
+      const heroItems = [
+        document.querySelector('.cons-hero .ey'),
+        document.querySelector('.cons-hero h1'),
+      ].filter(Boolean);
+
+      heroItems.forEach((el, i) => {
+        el.classList.add('reveal', 'from-bottom');
+        el.style.setProperty('--d', (i * 140) + 'ms');
+        el.setAttribute('data-delay', '1');
+      });
+
+      // Section elements (scroll)
+      const selectors = [
+        '.sh .tag', '.sh h2', '.sh .bar',
+        '.cons-grid .cc'
+      ];
+
+      selectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach((el, idx) => {
+          el.classList.add('reveal');
+
+          // alternate RTL-friendly directions
+          if (el.classList.contains('cc')) {
+            el.classList.add((idx % 2 === 0) ? 'from-right' : 'from-left');
+          } else {
+            el.classList.add('from-bottom');
+          }
+
+          el.style.setProperty('--d', (Math.min(idx, 12) * 90) + 'ms');
+          el.setAttribute('data-delay', '1');
+        });
+      });
+    })();
+
+    // 2) Reveal on load + on scroll (only first time)
+    (function () {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      // reveal hero immediately
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.cons-hero .reveal').forEach(el => el.classList.add('show'));
+      });
+
+      // reveal rest when entering viewport
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('show');
+          obs.unobserve(entry.target); // once
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => {
+        if (el.closest('.cons-hero')) return; // already revealed on load
+        io.observe(el);
+      });
+    })();
+  </script>
+
+  <script src="footer.js"></script>
 </body>
 
 </html>

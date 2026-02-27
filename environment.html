@@ -92,12 +92,53 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* =========================
+       Reveal Animations
+       ========================= */
+    :root {
+      --reveal-duration: 900ms;
+      --reveal-ease: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(2px);
+      transition:
+        opacity var(--reveal-duration) var(--reveal-ease),
+        transform var(--reveal-duration) var(--reveal-ease),
+        filter var(--reveal-duration) var(--reveal-ease);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.from-bottom { transform: translateY(28px); }
+    .reveal.from-left   { transform: translateX(-28px); }
+    .reveal.from-right  { transform: translateX(28px); }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translate(0, 0);
+      filter: blur(0);
+    }
+
+    .reveal[data-delay] {
+      transition-delay: var(--d, 0ms);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal.show {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+      }
+    }
   </style>
 </head>
 
 <body data-page="environment">
   <script src="nav.js"></script>
-  <!-- <script src="footer.js"></script> -->
 
   <div class="env-hero">
     <div class="ph">
@@ -114,6 +155,7 @@
         <h2>محاور عمل المنصة</h2>
         <div class="bar"></div>
       </div>
+
       <div class="env-grid">
 
         <!-- مركز التوعية - full width -->
@@ -186,8 +228,74 @@
       </div>
     </div>
   </section>
-  <script src="footer.js"></script>
 
+  <!-- ✅ REVEAL ANIMATIONS SCRIPT -->
+  <script>
+    // 1) Add reveal classes + delays automatically
+    (function () {
+      // Hero (load)
+      const heroItems = [
+        document.querySelector('.env-hero .ey'),
+        document.querySelector('.env-hero h1'),
+        document.querySelector('.env-hero .desc'),
+      ].filter(Boolean);
+
+      heroItems.forEach((el, i) => {
+        el.classList.add('reveal', 'from-bottom');
+        el.style.setProperty('--d', (i * 140) + 'ms');
+        el.setAttribute('data-delay', '1');
+      });
+
+      // Section elements (scroll)
+      const selectors = [
+        '.sh .tag', '.sh h2', '.sh .bar',
+        '.env-grid .ec'
+      ];
+
+      selectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach((el, idx) => {
+          el.classList.add('reveal');
+
+          // RTL-friendly directions
+          if (el.classList.contains('full')) {
+            el.classList.add('from-bottom');
+          } else {
+            // alternate for nice look
+            el.classList.add((idx % 2 === 0) ? 'from-right' : 'from-left');
+          }
+
+          el.style.setProperty('--d', (Math.min(idx, 12) * 90) + 'ms');
+          el.setAttribute('data-delay', '1');
+        });
+      });
+    })();
+
+    // 2) Reveal on load + on scroll (only first time)
+    (function () {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      // reveal hero immediately
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.env-hero .reveal').forEach(el => el.classList.add('show'));
+      });
+
+      // reveal rest when entering viewport
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('show');
+          obs.unobserve(entry.target); // once
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => {
+        if (el.closest('.env-hero')) return; // already revealed on load
+        io.observe(el);
+      });
+    })();
+  </script>
+
+  <script src="footer.js"></script>
 </body>
 
 </html>

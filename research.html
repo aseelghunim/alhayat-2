@@ -56,9 +56,7 @@
 
     /* رسالة */
     .mission-strip {
-      /* background: var(--blue); */
-      background: linear-gradient(135deg,#1a7abf,#2196f3)!important;
-
+      background: linear-gradient(135deg, #1a7abf, #2196f3) !important;
       border-radius: 14px;
       padding: 26px 32px;
       display: flex;
@@ -246,12 +244,63 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* =========================
+       Reveal Animations
+       ========================= */
+    :root {
+      --reveal-duration: 900ms;
+      --reveal-ease: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(2px);
+      transition:
+        opacity var(--reveal-duration) var(--reveal-ease),
+        transform var(--reveal-duration) var(--reveal-ease),
+        filter var(--reveal-duration) var(--reveal-ease);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.from-bottom {
+      transform: translateY(28px);
+    }
+
+    .reveal.from-left {
+      transform: translateX(-28px);
+    }
+
+    .reveal.from-right {
+      transform: translateX(28px);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translate(0, 0);
+      filter: blur(0);
+    }
+
+    .reveal[data-delay] {
+      transition-delay: var(--d, 0ms);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      .reveal.show {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+      }
+    }
   </style>
 </head>
 
 <body data-page="research">
   <script src="nav.js"></script>
-  <!-- <script src="footer.js"></script> -->
 
   <div class="res-hero">
     <div class="ph">
@@ -376,8 +425,91 @@
       </div>
     </div>
   </section>
-  <script src="footer.js"></script>
 
+  <!-- ✅ REVEAL ANIMATIONS SCRIPT -->
+  <script>
+    // 1) Add reveal classes + delays automatically
+    (function () {
+      // Hero (load)
+      const heroItems = [
+        document.querySelector('.res-hero .ey'),
+        document.querySelector('.res-hero h1'),
+        document.querySelector('.res-hero .desc'),
+      ].filter(Boolean);
+
+      heroItems.forEach((el, i) => {
+        el.classList.add('reveal', 'from-bottom');
+        el.style.setProperty('--d', (i * 140) + 'ms');
+        el.setAttribute('data-delay', '1');
+      });
+
+      // Sections (scroll)
+      const selectors = [
+        // intro paragraph
+        'section.sec:first-of-type .wrap > p',
+        // headings
+        '.sh .tag', '.sh h2', '.sh .bar',
+        // work list + mission
+        '.work-list .wi', '.mission-strip',
+        // fields
+        '.fields .field',
+        // services
+        '.srvs .srv',
+        // irb box + points
+        '.irb', '.irb-pts .irb-pt'
+      ];
+
+      selectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach((el, idx) => {
+          el.classList.add('reveal');
+
+          // directions (RTL-friendly)
+          if (el.classList.contains('wi')) {
+            el.classList.add('from-bottom');
+          } else if (el.classList.contains('mission-strip')) {
+            el.classList.add('from-right');
+          } else if (el.classList.contains('field')) {
+            el.classList.add('from-left');
+          } else if (el.classList.contains('srv')) {
+            el.classList.add('from-bottom');
+          } else if (el.classList.contains('irb')) {
+            el.classList.add('from-bottom');
+          } else {
+            el.classList.add('from-bottom');
+          }
+
+          el.style.setProperty('--d', (Math.min(idx, 10) * 80) + 'ms');
+          el.setAttribute('data-delay', '1');
+        });
+      });
+    })();
+
+    // 2) Reveal on load + on scroll (only first time)
+    (function () {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      // reveal hero immediately
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.res-hero .reveal').forEach(el => el.classList.add('show'));
+      });
+
+      // reveal rest when entering viewport
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('show');
+          obs.unobserve(entry.target); // once
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => {
+        if (el.closest('.res-hero')) return; // already revealed on load
+        io.observe(el);
+      });
+    })();
+  </script>
+
+  <script src="footer.js"></script>
 </body>
 
 </html>
