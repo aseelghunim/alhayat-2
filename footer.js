@@ -21,12 +21,12 @@
           '<li><a href="environment.html">السلامة البيئية</a></li>'+
           '<li><a href="consulting.html">الاستشارات والتطوير</a></li>'+
         '</ul></div>'+
-        '<div class="ft-col"><h4>برامج الأكاديمية</h4><ul>'+
-          '<li><a href="academy.html#diplomas">الدبلومات المهنية</a></li>'+
-          '<li><a href="academy.html#short">البرامج القصيرة</a></li>'+
-          '<li><a href="academy.html#university">الإعداد الجامعي</a></li>'+
-          '<li><a href="academy.html#micro">الشهادات المهارية</a></li>'+
-        '</ul></div>'+
+        // '<div class="ft-col"><h4>برامج الأكاديمية</h4><ul>'+
+        //   '<li><a href="academy.html#diplomas">الدبلومات المهنية</a></li>'+
+        //   '<li><a href="academy.html#short">البرامج القصيرة</a></li>'+
+        //   '<li><a href="academy.html#university">الإعداد الجامعي</a></li>'+
+        //   '<li><a href="academy.html#micro">الشهادات المهارية</a></li>'+
+        // '</ul></div>'+
         '<div class="ft-col"><h4>تواصل معنا</h4><ul>'+
           '<li><a href="index.html#contact">نموذج التواصل</a></li>'+
           '<li><a href="mailto:info@alhayat.ps">info@alhayat.ps</a></li>'+
