@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>الإعلام البيئي والصحي – منصة الحياة</title>
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -63,8 +63,19 @@
             pointer-events: none
         }
 
-        .hero-deco.d1 { width: 320px; height: 320px; top: -80px; left: -80px }
-        .hero-deco.d2 { width: 200px; height: 200px; bottom: -60px; right: -40px }
+        .hero-deco.d1 {
+            width: 320px;
+            height: 320px;
+            top: -80px;
+            left: -80px
+        }
+
+        .hero-deco.d2 {
+            width: 200px;
+            height: 200px;
+            bottom: -60px;
+            right: -40px
+        }
 
         .hero-inner {
             position: relative;
@@ -94,7 +105,9 @@
             margin-bottom: 18px
         }
 
-        .hero h1 span { color: var(--gold-light) }
+        .hero h1 span {
+            color: var(--gold-light)
+        }
 
         .hero p {
             font-size: 15px;
@@ -111,20 +124,37 @@
             flex-wrap: wrap
         }
 
-        .stat { text-align: center }
+        .stat {
+            text-align: center
+        }
+
         .stat strong {
             display: block;
             font-size: 28px;
             font-weight: 900;
             color: var(--gold-light)
         }
-        .stat span { font-size: 12px; color: rgba(255, 255, 255, .7) }
+
+        .stat span {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .7)
+        }
 
         /* SECTION */
-        .sec { padding: 70px 24px }
-        .wrap { max-width: 1100px; margin: auto }
+        .sec {
+            padding: 70px 24px
+        }
 
-        .sh { text-align: center; margin-bottom: 50px }
+        .wrap {
+            max-width: 1100px;
+            margin: auto
+        }
+
+        .sh {
+            text-align: center;
+            margin-bottom: 50px
+        }
+
         .sh .tag {
             display: inline-block;
             background: var(--green-light);
@@ -158,8 +188,17 @@
             gap: 28px
         }
 
-        @media(max-width:900px) { .video-grid { grid-template-columns: repeat(2, 1fr) } }
-        @media(max-width:580px) { .video-grid { grid-template-columns: 1fr } }
+        @media(max-width:900px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:580px) {
+            .video-grid {
+                grid-template-columns: 1fr
+            }
+        }
 
         .video-card {
             background: #fff;
@@ -196,7 +235,9 @@
             display: none
         }
 
-        .video-card:hover .thumb canvas { transform: scale(1.06) }
+        .video-card:hover .thumb canvas {
+            transform: scale(1.06)
+        }
 
         .thumb::after {
             content: '';
@@ -216,8 +257,13 @@
         }
 
         @keyframes shimmer {
-            0% { background-position: 200% 0 }
-            100% { background-position: -200% 0 }
+            0% {
+                background-position: 200% 0
+            }
+
+            100% {
+                background-position: -200% 0
+            }
         }
 
         .thumb-error {
@@ -290,13 +336,36 @@
             transform: scale(1.12)
         }
 
-        .play-circle svg { width: 22px; fill: #fff; margin-right: -2px }
+        .play-circle svg {
+            width: 22px;
+            fill: #fff;
+            margin-right: -2px
+        }
 
         /* CARD BODY */
-        .card-body { padding: 18px 18px 16px }
-        .card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px }
-        .views { font-size: 12px; color: #7a9a80 }
-        .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border) }
+        .card-body {
+            padding: 18px 18px 16px
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px
+        }
+
+        .views {
+            font-size: 12px;
+            color: #7a9a80
+        }
+
+        .dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--border)
+        }
+
         .card-title {
             font-size: 15px;
             font-weight: 800;
@@ -326,8 +395,15 @@
             transition: all .22s
         }
 
-        .watch-link:hover { background: var(--green-bright); color: #fff }
-        .watch-link svg { width: 13px; fill: currentColor }
+        .watch-link:hover {
+            background: var(--green-bright);
+            color: #fff
+        }
+
+        .watch-link svg {
+            width: 13px;
+            fill: currentColor
+        }
 
         /* MODAL */
         .modal-overlay {
@@ -345,7 +421,10 @@
             transition: opacity .3s ease
         }
 
-        .modal-overlay.open { opacity: 1; pointer-events: all }
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all
+        }
 
         .modal-box {
             background: #101f14;
@@ -359,7 +438,9 @@
             transition: transform .38s cubic-bezier(.2, .8, .2, 1)
         }
 
-        .modal-overlay.open .modal-box { transform: scale(1) translateY(0) }
+        .modal-overlay.open .modal-box {
+            transform: scale(1) translateY(0)
+        }
 
         .modal-header {
             display: flex;
@@ -394,7 +475,10 @@
             transition: background .2s
         }
 
-        .modal-close:hover { background: rgba(220, 50, 50, .75); border-color: transparent }
+        .modal-close:hover {
+            background: rgba(220, 50, 50, .75);
+            border-color: transparent
+        }
 
         .modal-video {
             position: relative;
@@ -443,7 +527,10 @@
             transition: opacity .8s cubic-bezier(.2, .8, .2, 1), transform .8s cubic-bezier(.2, .8, .2, 1)
         }
 
-        .reveal.show { opacity: 1; transform: none }
+        .reveal.show {
+            opacity: 1;
+            transform: none
+        }
 
         /* FOOTER */
         .page-footer {
@@ -454,7 +541,10 @@
             font-size: 13px
         }
 
-        .page-footer a { color: var(--gold-light); text-decoration: none }
+        .page-footer a {
+            color: var(--gold-light);
+            text-decoration: none
+        }
     </style>
 </head>
 
@@ -467,7 +557,8 @@
         <div class="hero-inner">
             <div class="hero-badge">📺 منصة الحياة للسلامة البيئية والصحية</div>
             <h1>الإعلام <span>البيئي والصحي</span></h1>
-            <p>محتوى إعلامي احترافي يسلّط الضوء على القضايا البيئية والصحية المؤثرة في مجتمعنا، من تقارير ميدانية ووظائفيات قصيرة إلى حملات توعوية وقصص واقعية.</p>
+            <p>محتوى إعلامي احترافي يسلّط الضوء على القضايا البيئية والصحية المؤثرة في مجتمعنا، من تقارير ميدانية
+                ووظائفيات قصيرة إلى حملات توعوية وقصص واقعية.</p>
             <div class="hero-stats">
             </div>
         </div>
@@ -483,110 +574,166 @@
 
             <div class="video-grid" id="videoGrid">
 
-                <div class="video-card reveal" data-cat="waste" data-src="assets/videos/أنت تتنفس وتشرب مخلّفات نفايات طبية سامة دون أن تعلم.mp4" >
+                <div class="video-card reveal" data-cat="waste"
+                    data-src="assets/videos/أنت تتنفس وتشرب مخلّفات نفايات طبية سامة دون أن تعلم.mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">أنت تتنفس وتشرب مخلّفات نفايات طبية سامة دون أن تعلم</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
-                <div class="video-card reveal" data-cat="health" data-src="assets/videos/أمراض بتزيد حوالينا… هل السبب نفايات طبية  مُهملة؟.mp4" >
+                <div class="video-card reveal" data-cat="health"
+                    data-src="assets/videos/أمراض بتزيد حوالينا… هل السبب نفايات طبية  مُهملة؟.mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">أمراض بتزيد حوالينا… هل السبب نفايات طبية مُهملة؟</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
-                <div class="video-card reveal" data-cat="med" data-src="assets/videos/الدواء اللي بشفيك… ممكن يدمّر البيئة! 💊☠️.mp4" >
+                <div class="video-card reveal" data-cat="med"
+                    data-src="assets/videos/الدواء اللي بشفيك… ممكن يدمّر البيئة! 💊☠️.mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
-                        
+
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">الدواء اللي بشفيك… ممكن يدمّر البيئة!</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
-                <div class="video-card reveal" data-cat="med" data-src="assets/videos/هل تعلم أن الدواء الذي ترميه قد يعود إليك عبر الماء أو الطعام؟.mp4" >
+                <div class="video-card reveal" data-cat="med"
+                    data-src="assets/videos/هل تعلم أن الدواء الذي ترميه قد يعود إليك عبر الماء أو الطعام؟.mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
-                        
+
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">هل تعلم أن الدواء الذي ترميه قد يعود إليك عبر الماء؟</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
-                <div class="video-card reveal" data-cat="bacteria" data-src="assets/videos/اخطر بكتيريا في العالم قد تبدأ من النفايات الطبية !!.mp4" >
+                <div class="video-card reveal" data-cat="bacteria"
+                    data-src="assets/videos/اخطر بكتيريا في العالم قد تبدأ من النفايات الطبية !!.mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">أخطر بكتيريا في العالم قد تبدأ من النفايات الطبية</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
-                <div class="video-card reveal" data-cat="env" data-src="assets/videos/البيئة لا تنسى الأدوية… والهرمونات أخطر ما يبقى فيها..mp4" >
+                <div class="video-card reveal" data-cat="env"
+                    data-src="assets/videos/البيئة لا تنسى الأدوية… والهرمونات أخطر ما يبقى فيها..mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">البيئة لا تنسى الأدوية… والهرمونات أخطر ما يبقى فيها</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
-                <div class="video-card reveal" data-cat="med" data-src="assets/videos/إحنا عم نشرب الأدوية مرة ثانية… بدون ما نعرف💊.mp4" >
+                <div class="video-card reveal" data-cat="med"
+                    data-src="assets/videos/إحنا عم نشرب الأدوية مرة ثانية.mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
-                        
+
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">إحنا عم نشرب الأدوية مرة ثانية… بدون ما نعرف</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
-                <div class="video-card reveal" data-cat="community" data-src="assets/videos/بين الشغل والخطر: أطفال في مكبات نفايات مختلطة!.mp4" >
+                <div class="video-card reveal" data-cat="community"
+                    data-src="assets/videos/بين الشغل والخطر: أطفال في مكبات نفايات مختلطة!.mp4">
                     <div class="thumb">
                         <div class="thumb-shimmer"></div>
                         <canvas></canvas>
                         <span class="video-duration"></span>
-                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                        <div class="play-btn">
+                            <div class="play-circle"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">بين الشغل والخطر: أطفال في مكبات نفايات مختلطة!</h3>
-                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                        <button class="watch-link"><svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>شاهد الآن</button>
                     </div>
                 </div>
 
@@ -619,32 +766,32 @@
             if (!s || isNaN(s)) return '';
             return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
         }
-    
+
         function cleanTitle(src) {
             let name = src.split('/').pop().replace(/\.[^/.]+$/, "");
             return name;
         }
-    
+
         function extractThumb(card) {
             const src = card.dataset.src;
             const canvas = card.querySelector('canvas');
             const shimmer = card.querySelector('.thumb-shimmer');
             const durEl = card.querySelector('.video-duration');
             const ctx = canvas.getContext('2d');
-    
+
             const vid = document.createElement('video');
             vid.muted = true;
             vid.preload = 'metadata';
             vid.src = src;
-    
+
             vid.addEventListener('loadedmetadata', () => {
                 if (vid.duration && isFinite(vid.duration)) {
                     durEl.textContent = fmtDur(vid.duration);
                     durEl.style.display = 'block';
                 }
-                vid.currentTime = 1.5; 
+                vid.currentTime = 1.5;
             });
-    
+
             vid.addEventListener('seeked', () => {
                 canvas.width = vid.videoWidth || 640;
                 canvas.height = vid.videoHeight || 360;
@@ -656,32 +803,32 @@
                 vid.load();
             });
         }
-    
+
         const overlay = document.getElementById('modalOverlay');
         const modalVid = document.getElementById('modalVideo');
         const titleEl = document.getElementById('modalTitle');
         const catEl = document.getElementById('modalCat');
         const fileEl = document.getElementById('modalFilename');
         const closeBtn = document.getElementById('modalClose');
-    
+
         function openModal(src, title, cat) {
             titleEl.textContent = title;
             // قمنا بتغيير النص بناءً على الـ data-cat الموجود في البطاقة
-           
+
             fileEl.textContent = src.split('/').pop();
             modalVid.src = src;
             modalVid.play().catch(() => { });
             overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
-    
+
         function closeModal() {
             overlay.classList.remove('open');
             modalVid.pause();
             modalVid.src = '';
             document.body.style.overflow = '';
         }
-    
+
         const cards = document.querySelectorAll('.video-card');
         cards.forEach(card => {
             const title = cleanTitle(card.dataset.src);
@@ -691,28 +838,29 @@
                 openModal(card.dataset.src, title, card.dataset.cat);
             });
         });
-    
+
         // فحص الأمان للتأكد من وجود العنصر قبل استخدامه
         const statEl = document.getElementById('statCount');
         if (statEl) {
             statEl.textContent = cards.length + '+';
         }
-    
+
         closeBtn.addEventListener('click', closeModal);
         overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-    
+
         const io = new IntersectionObserver(entries => {
-            entries.forEach(e => { 
-                if (e.isIntersecting) { 
-                    e.target.classList.add('show'); 
-                    io.unobserve(e.target); 
-                } 
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('show');
+                    io.unobserve(e.target);
+                }
             });
         }, { threshold: 0.1 });
-        
+
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
-    
+
 </body>
+
 </html>
