@@ -667,15 +667,7 @@
         function openModal(src, title, cat) {
             titleEl.textContent = title;
             // قمنا بتغيير النص بناءً على الـ data-cat الموجود في البطاقة
-            const categories = {
-                'waste': 'النفايات الطبية',
-                'health': 'الصحة العامة',
-                'med': 'الوعي الدوائي',
-                'bacteria': 'مخاطر بيولوجية',
-                'env': 'التلوث البيئي',
-                'community': 'التوعية المجتمعية'
-            };
-            catEl.textContent = categories[cat] || 'عام';
+           
             fileEl.textContent = src.split('/').pop();
             modalVid.src = src;
             modalVid.play().catch(() => { });
