@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>الإعلام البيئي والصحي – منصة الحياة</title>
+  <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --green-deep: #0f3d22;
+            --green-mid: #1a6b3a;
+            --green-bright: #27ae60;
+            --green-light: #d4edda;
+            --gold: #c9a227;
+            --gold-light: #f0d97a;
+            --off-white: #f8faf7;
+            --text-dark: #162113;
+            --text-body: #3a4a3d;
+            --border: #d0e8d5;
+            --card-shadow: 0 8px 40px rgba(15, 61, 34, .13);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            overflow-x: hidden
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 55%, #2d9e55 100%);
+            padding: 70px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(201, 162, 39, .18) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 10% 80%, rgba(39, 174, 96, .22) 0%, transparent 60%)
+        }
+
+        .hero-deco {
+            position: absolute;
+            border-radius: 50%;
+            opacity: .06;
+            background: #fff;
+            pointer-events: none
+        }
+
+        .hero-deco.d1 { width: 320px; height: 320px; top: -80px; left: -80px }
+        .hero-deco.d2 { width: 200px; height: 200px; bottom: -60px; right: -40px }
+
+        .hero-inner {
+            position: relative;
+            max-width: 760px;
+            margin: auto
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 999px;
+            padding: 6px 20px;
+            font-size: 13px;
+            color: var(--gold-light);
+            margin-bottom: 22px;
+            backdrop-filter: blur(6px)
+        }
+
+        .hero h1 {
+            font-size: clamp(26px, 5vw, 44px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.35;
+            margin-bottom: 18px
+        }
+
+        .hero h1 span { color: var(--gold-light) }
+
+        .hero p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, .82);
+            line-height: 1.9;
+            max-width: 580px;
+            margin: 0 auto 30px
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap
+        }
+
+        .stat { text-align: center }
+        .stat strong {
+            display: block;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--gold-light)
+        }
+        .stat span { font-size: 12px; color: rgba(255, 255, 255, .7) }
+
+        /* SECTION */
+        .sec { padding: 70px 24px }
+        .wrap { max-width: 1100px; margin: auto }
+
+        .sh { text-align: center; margin-bottom: 50px }
+        .sh .tag {
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--green-mid);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 18px;
+            border-radius: 999px;
+            margin-bottom: 14px
+        }
+
+        .sh h2 {
+            font-size: clamp(20px, 3.5vw, 32px);
+            font-weight: 900;
+            color: var(--green-deep);
+            margin-bottom: 12px
+        }
+
+        .sh .bar {
+            width: 54px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-bright), var(--gold));
+            border-radius: 2px;
+            margin: 0 auto
+        }
+
+        /* GRID */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px
+        }
+
+        @media(max-width:900px) { .video-grid { grid-template-columns: repeat(2, 1fr) } }
+        @media(max-width:580px) { .video-grid { grid-template-columns: 1fr } }
+
+        .video-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform .28s, box-shadow .28s;
+            cursor: pointer
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 55px rgba(15, 61, 34, .16)
+        }
+
+        /* THUMB */
+        .thumb {
+            height: 320px;
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #0d1f12;
+            overflow: hidden
+        }
+
+        .thumb canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s;
+            display: none
+        }
+
+        .video-card:hover .thumb canvas { transform: scale(1.06) }
+
+        .thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 35, 18, .72) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 1
+        }
+
+        .thumb-shimmer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #1a3a20 25%, #2d6b40 50%, #1a3a20 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s infinite
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0 }
+            100% { background-position: -200% 0 }
+        }
+
+        .thumb-error {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #0d1f12;
+            color: rgba(255, 255, 255, .35);
+            font-size: 12px;
+            gap: 8px;
+            z-index: 2
+        }
+
+        .cat-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 3;
+            background: var(--gold);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            z-index: 3;
+            background: rgba(0, 0, 0, .65);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 6px;
+            backdrop-filter: blur(4px);
+            display: none
+        }
+
+        .play-btn {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2
+        }
+
+        .play-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .18);
+            border: 2.5px solid rgba(255, 255, 255, .65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            transition: background .22s, transform .22s
+        }
+
+        .video-card:hover .play-circle {
+            background: var(--green-bright);
+            border-color: var(--green-bright);
+            transform: scale(1.12)
+        }
+
+        .play-circle svg { width: 22px; fill: #fff; margin-right: -2px }
+
+        /* CARD BODY */
+        .card-body { padding: 18px 18px 16px }
+        .card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px }
+        .views { font-size: 12px; color: #7a9a80 }
+        .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border) }
+        .card-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--green-deep);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 45px;
+        }
+
+        .watch-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--green-bright);
+            background: none;
+            border: 1.5px solid var(--green-bright);
+            border-radius: 999px;
+            padding: 7px 16px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: all .22s
+        }
+
+        .watch-link:hover { background: var(--green-bright); color: #fff }
+        .watch-link svg { width: 13px; fill: currentColor }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(4, 14, 8, .92);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s ease
+        }
+
+        .modal-overlay.open { opacity: 1; pointer-events: all }
+
+        .modal-box {
+            background: #101f14;
+            border: 1px solid rgba(39, 174, 96, .28);
+            border-radius: 22px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, .75);
+            transform: scale(.92) translateY(28px);
+            transition: transform .38s cubic-bezier(.2, .8, .2, 1)
+        }
+
+        .modal-overlay.open .modal-box { transform: scale(1) translateY(0) }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 22px;
+            background: rgba(255, 255, 255, .04);
+            border-bottom: 1px solid rgba(255, 255, 255, .07)
+        }
+
+        .modal-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            max-width: calc(100% - 54px);
+            line-height: 1.4
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            transition: background .2s
+        }
+
+        .modal-close:hover { background: rgba(220, 50, 50, .75); border-color: transparent }
+
+        .modal-video {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000
+        }
+
+        .modal-video video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            outline: none
+        }
+
+        .modal-footer {
+            padding: 13px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .modal-cat {
+            background: var(--gold);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 999px;
+            white-space: nowrap
+        }
+
+        .modal-filename {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .4);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .8s cubic-bezier(.2, .8, .2, 1), transform .8s cubic-bezier(.2, .8, .2, 1)
+        }
+
+        .reveal.show { opacity: 1; transform: none }
+
+        /* FOOTER */
+        .page-footer {
+            background: var(--green-deep);
+            color: rgba(255, 255, 255, .7);
+            text-align: center;
+            padding: 28px 24px;
+            font-size: 13px
+        }
+
+        .page-footer a { color: var(--gold-light); text-decoration: none }
+    </style>
+</head>
+
+<body>
+    <script src="nav.js"></script>
+
+    <header class="hero">
+        <div class="hero-deco d1"></div>
+        <div class="hero-deco d2"></div>
+        <div class="hero-inner">
+            <div class="hero-badge">📺 منصة الحياة للسلامة البيئية والصحية</div>
+            <h1>الإعلام <span>البيئي والصحي</span></h1>
+            <p>محتوى إعلامي احترافي يسلّط الضوء على القضايا البيئية والصحية المؤثرة في مجتمعنا، من تقارير ميدانية ووظائفيات قصيرة إلى حملات توعوية وقصص واقعية.</p>
+            <div class="hero-stats">
+            </div>
+        </div>
+    </header>
+
+    <section class="sec">
+        <div class="wrap">
+            <div class="sh reveal">
+                <span class="tag">مكتبة الفيديو</span>
+                <h2>آخر الإصدارات والوثائقيات</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="video-grid" id="videoGrid">
+
+                <div class="video-card reveal" data-cat="waste" data-src="assets/videos/أنت تتنفس وتشرب مخلّفات نفايات طبية سامة دون أن تعلم.mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">أنت تتنفس وتشرب مخلّفات نفايات طبية سامة دون أن تعلم</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+                <div class="video-card reveal" data-cat="health" data-src="assets/videos/أمراض بتزيد حوالينا… هل السبب نفايات طبية  مُهملة؟.mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">أمراض بتزيد حوالينا… هل السبب نفايات طبية مُهملة؟</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+                <div class="video-card reveal" data-cat="med" data-src="assets/videos/الدواء اللي بشفيك… ممكن يدمّر البيئة! 💊☠️.mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">الدواء اللي بشفيك… ممكن يدمّر البيئة!</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+                <div class="video-card reveal" data-cat="med" data-src="assets/videos/هل تعلم أن الدواء الذي ترميه قد يعود إليك عبر الماء أو الطعام؟.mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">هل تعلم أن الدواء الذي ترميه قد يعود إليك عبر الماء؟</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+                <div class="video-card reveal" data-cat="bacteria" data-src="assets/videos/اخطر بكتيريا في العالم قد تبدأ من النفايات الطبية !!.mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">أخطر بكتيريا في العالم قد تبدأ من النفايات الطبية</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+                <div class="video-card reveal" data-cat="env" data-src="assets/videos/البيئة لا تنسى الأدوية… والهرمونات أخطر ما يبقى فيها..mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">البيئة لا تنسى الأدوية… والهرمونات أخطر ما يبقى فيها</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+                <div class="video-card reveal" data-cat="med" data-src="assets/videos/إحنا عم نشرب الأدوية مرة ثانية… بدون ما نعرف💊.mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">إحنا عم نشرب الأدوية مرة ثانية… بدون ما نعرف</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+                <div class="video-card reveal" data-cat="community" data-src="assets/videos/بين الشغل والخطر: أطفال في مكبات نفايات مختلطة!.mp4" >
+                    <div class="thumb">
+                        <div class="thumb-shimmer"></div>
+                        <canvas></canvas>
+                        <span class="video-duration"></span>
+                        <div class="play-btn"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">بين الشغل والخطر: أطفال في مكبات نفايات مختلطة!</h3>
+                        <button class="watch-link"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>شاهد الآن</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle"></span>
+                <button class="modal-close" id="modalClose" aria-label="إغلاق">✕</button>
+            </div>
+            <div class="modal-video">
+                <video id="modalVideo" controls playsinline>
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+            <div class="modal-footer">
+                <span class="modal-cat" id="modalCat"></span>
+                <span class="modal-filename" id="modalFilename"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="footer.js"></script>
+
+    <script>
+        function fmtDur(s) {
+            if (!s || isNaN(s)) return '';
+            return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+        }
+    
+        function cleanTitle(src) {
+            let name = src.split('/').pop().replace(/\.[^/.]+$/, "");
+            return name;
+        }
+    
+        function extractThumb(card) {
+            const src = card.dataset.src;
+            const canvas = card.querySelector('canvas');
+            const shimmer = card.querySelector('.thumb-shimmer');
+            const durEl = card.querySelector('.video-duration');
+            const ctx = canvas.getContext('2d');
+    
+            const vid = document.createElement('video');
+            vid.muted = true;
+            vid.preload = 'metadata';
+            vid.src = src;
+    
+            vid.addEventListener('loadedmetadata', () => {
+                if (vid.duration && isFinite(vid.duration)) {
+                    durEl.textContent = fmtDur(vid.duration);
+                    durEl.style.display = 'block';
+                }
+                vid.currentTime = 1.5; 
+            });
+    
+            vid.addEventListener('seeked', () => {
+                canvas.width = vid.videoWidth || 640;
+                canvas.height = vid.videoHeight || 360;
+                ctx.drawImage(vid, 0, 0, canvas.width, canvas.height);
+                shimmer.style.display = 'none';
+                canvas.style.display = 'block';
+                // تحرير الذاكرة بعد استخراج الصورة
+                vid.src = "";
+                vid.load();
+            });
+        }
+    
+        const overlay = document.getElementById('modalOverlay');
+        const modalVid = document.getElementById('modalVideo');
+        const titleEl = document.getElementById('modalTitle');
+        const catEl = document.getElementById('modalCat');
+        const fileEl = document.getElementById('modalFilename');
+        const closeBtn = document.getElementById('modalClose');
+    
+        function openModal(src, title, cat) {
+            titleEl.textContent = title;
+            // قمنا بتغيير النص بناءً على الـ data-cat الموجود في البطاقة
+            const categories = {
+                'waste': 'النفايات الطبية',
+                'health': 'الصحة العامة',
+                'med': 'الوعي الدوائي',
+                'bacteria': 'مخاطر بيولوجية',
+                'env': 'التلوث البيئي',
+                'community': 'التوعية المجتمعية'
+            };
+            catEl.textContent = categories[cat] || 'عام';
+            fileEl.textContent = src.split('/').pop();
+            modalVid.src = src;
+            modalVid.play().catch(() => { });
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+    
+        function closeModal() {
+            overlay.classList.remove('open');
+            modalVid.pause();
+            modalVid.src = '';
+            document.body.style.overflow = '';
+        }
+    
+        const cards = document.querySelectorAll('.video-card');
+        cards.forEach(card => {
+            const title = cleanTitle(card.dataset.src);
+            extractThumb(card);
+            card.addEventListener('click', () => {
+                // نمرر dataset.cat بدلاً من catLabel غير الموجود
+                openModal(card.dataset.src, title, card.dataset.cat);
+            });
+        });
+    
+        // فحص الأمان للتأكد من وجود العنصر قبل استخدامه
+        const statEl = document.getElementById('statCount');
+        if (statEl) {
+            statEl.textContent = cards.length + '+';
+        }
+    
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { 
+                if (e.isIntersecting) { 
+                    e.target.classList.add('show'); 
+                    io.unobserve(e.target); 
+                } 
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+    
+</body>
+</html>
